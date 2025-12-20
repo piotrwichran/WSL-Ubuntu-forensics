@@ -1,6 +1,7 @@
 **Languages / Wersje językowe:** [Polski](#polski) | [English](#english)
 ---
-Polski {#polski}
+
+## Polski {#polski}
 
 # Instalacja, konfiguracja i przygotowanie WSL (Ubuntu) do pracy z narzędziami forensics
 
@@ -58,7 +59,8 @@ W terminalu WSL (Ubuntu) wykonaj:
 - autopsy – uruchomi GUI Autopsy (jeśli masz X-server lub WSLg w Windows 11).
 
 ---
-English {#english}
+
+## English {#english}
 
 Installation, configuration and preparation of WSL (Ubuntu) for forensics tools
 Step-by-step instructions for Windows 10 (build 19041+) or Windows 11. All commands in PowerShell or Windows Terminal run as Administrator.
