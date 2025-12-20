@@ -13,8 +13,8 @@ Krok-po-kroku lista czynności dla Windows 10 (build 19041+) lub Windows 11. Wsz
 2. Włącz WSL i platformę maszyn wirtualnych: wsl --install
     - Automatycznie włączy potrzebne funkcje, zainstaluje WSL 2 i domyślną dystrybucję **Ubuntu** (najnowszą LTS).
     - Jeśli polecenie nie działa (starszy Windows), ręcznie: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestartdism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-3. Restart komputera.
-4. Po restarcie system pobierze i zainstaluje Ubuntu z Microsoft Store automatycznie.
+		- Restart komputera.
+		- Po restarcie system pobierze i zainstaluje Ubuntu z Microsoft Store automatycznie.
 5. Po pierwszym uruchomieniu Ubuntu (wpisz wsl lub ubuntu w terminalu):
     - Utwórz nazwę użytkownika Linux (np. forensics lub student).
     - Ustaw hasło UNIX (nie będzie widoczne podczas wpisywania).
@@ -72,8 +72,8 @@ Step-by-step instructions for Windows 10 (build 19041+) or Windows 11. All comma
 2. Enable WSL and virtual machine platform:  wsl --install 
 	- Automatically enables required features, installs WSL 2 and default Ubuntu distribution (latest LTS).
 	- If the command doesn’t work (older Windows), manually:  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 
-3. Restart your computer.
-4. After restart, the system will download and install Ubuntu from Microsoft Store automatically.
+		- Restart your computer.
+		- After restart, the system will download and install Ubuntu from Microsoft Store automatically.
 5. After first Ubuntu launch (type  wsl  or  ubuntu  in terminal):
 	- Create Linux username (e.g.  forensics  or  student ).
 	- Set UNIX password (it won’t be visible while typing).
