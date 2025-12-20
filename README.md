@@ -104,12 +104,13 @@ Step-by-step instructions for Windows 10 (build 19041+) or Windows 11. All comma
 ### 4. Installing popular forensics programs in Ubuntu
 
 In WSL (Ubuntu) terminal, run:
-	1.	Update repositories:  sudo apt update 
-	2.	Basic imaging and disk analysis tools:  sudo apt install -y sleuthkit autopsy guymager foremost scalpel testdisk dc3dd dcfldd 
-	3.	Memory analysis and others:  sudo apt install -y volatility wireshark tshark exiftool binwalk bulk-extractor 
-	4.	Volatility 3 (newer version):  sudo apt install -y python3-pip   pip3 install volatility3 
-	5.	Plaso (timeline):  sudo apt install -y plaso-tools 
-	6.	Additional useful:  sudo apt install -y extundelete rekall 
+
+1. Update repositories:  sudo apt update 
+2. Basic imaging and disk analysis tools:  sudo apt install -y sleuthkit autopsy guymager foremost scalpel testdisk dc3dd dcfldd 
+3. Memory analysis and others:  sudo apt install -y volatility wireshark tshark exiftool binwalk bulk-extractor 
+4. Volatility 3 (newer version):  sudo apt install -y python3-pip   pip3 install volatility3 
+5. Plaso (timeline):  sudo apt install -y plaso-tools 
+6. Additional useful:  sudo apt install -y extundelete rekall 
 	
 ### 5. Quick installation test
 
