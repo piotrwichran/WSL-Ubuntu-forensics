@@ -41,6 +41,7 @@ enabled = true
 options = "metadata,umask=22,fmask=11"
 ```
 Potem wsl --shutdown w PowerShell i uruchom ponownie.
+
 ### 4. Instalacja popularnych programów forensics w Ubuntu
 
 W terminalu WSL (Ubuntu) wykonaj:
@@ -62,38 +63,46 @@ W terminalu WSL (Ubuntu) wykonaj:
 
 ## English
 
-Installation, configuration and preparation of WSL (Ubuntu) for forensics tools
+# Installation, configuration and preparation of WSL (Ubuntu) for forensics tools
 Step-by-step instructions for Windows 10 (build 19041+) or Windows 11. All commands in PowerShell or Windows Terminal run as Administrator.
-1. Installing WSL 2 and Ubuntu
-	1.	Open PowerShell as Administrator.
-	2.	Enable WSL and virtual machine platform:  wsl --install 
-	•	Automatically enables required features, installs WSL 2 and default Ubuntu distribution (latest LTS).
-	•	If the command doesn’t work (older Windows), manually:  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 
-	3.	Restart your computer.
-	4.	After restart, the system will download and install Ubuntu from Microsoft Store automatically.
-	5.	After first Ubuntu launch (type  wsl  or  ubuntu  in terminal):
-	•	Create Linux username (e.g.  forensics  or  student ).
-	•	Set UNIX password (it won’t be visible while typing).
-2. Basic WSL configuration
-	1.	Check version and status:  wsl --list --verbose  You should see Ubuntu with VERSION 2.
-	2.	Set WSL 2 as default (if not already):  wsl --set-default-version 2 
-	3.	Set Ubuntu as default distribution:  wsl --set-default Ubuntu 
-	4.	Update Ubuntu system: In WSL terminal (as Linux user):  sudo apt update && sudo apt upgrade -y 
-	5.	Install basic tools:  sudo apt install -y git curl wget nano net-tools 
-3. Useful additional configuration
-	1.	Access Windows files from Linux: Files from C: drive are in  /mnt/c/  (e.g.  /mnt/c/Users/YourName/Documents ).
-	2.	Access Linux files from Windows: In Explorer, type  \\wsl$\Ubuntu\home\your_username 
-	3.	VS Code integration (optional but very useful):
-	•	Install “Remote – WSL” extension in VS Code.
-	•	Open folder in WSL with one click.
-	4.	Automatic disk mounting (e.g. USB): Edit  /etc/wsl.conf  (sudo nano):
+
+### 1. Installing WSL 2 and Ubuntu
+
+1. Open PowerShell as Administrator.
+2. Enable WSL and virtual machine platform:  wsl --install 
+	- Automatically enables required features, installs WSL 2 and default Ubuntu distribution (latest LTS).
+	- If the command doesn’t work (older Windows), manually:  dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart   dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart 
+3. Restart your computer.
+4. After restart, the system will download and install Ubuntu from Microsoft Store automatically.
+5. After first Ubuntu launch (type  wsl  or  ubuntu  in terminal):
+	- Create Linux username (e.g.  forensics  or  student ).
+	- Set UNIX password (it won’t be visible while typing).
+	
+### 2. Basic WSL configuration
+
+1. Check version and status:  wsl --list --verbose  You should see Ubuntu with VERSION 2.
+2. Set WSL 2 as default (if not already):  wsl --set-default-version 2 
+3. Set Ubuntu as default distribution:  wsl --set-default Ubuntu 
+4. Update Ubuntu system: In WSL terminal (as Linux user):  sudo apt update && sudo apt upgrade -y 
+5. Install basic tools:  sudo apt install -y git curl wget nano net-tools 
+	
+### 3. Useful additional configuration
+
+1. Access Windows files from Linux: Files from C: drive are in  /mnt/c/  (e.g.  /mnt/c/Users/YourName/Documents ).
+2. Access Linux files from Windows: In Explorer, type  \\wsl$\Ubuntu\home\your_username 
+3. VS Code integration (optional but very useful):
+	- Install “Remote – WSL” extension in VS Code.
+	- Open folder in WSL with one click.
+4. Automatic disk mounting (e.g. USB): Edit  /etc/wsl.conf  (sudo nano):
     ```
     [automount]
     enabled = true
     options = "metadata,umask=22,fmask=11"
     ```
     Then  wsl --shutdown  in PowerShell and restart.
-4. Installing popular forensics programs in Ubuntu
+	
+### 4. Installing popular forensics programs in Ubuntu
+
 In WSL (Ubuntu) terminal, run:
 	1.	Update repositories:  sudo apt update 
 	2.	Basic imaging and disk analysis tools:  sudo apt install -y sleuthkit autopsy guymager foremost scalpel testdisk dc3dd dcfldd 
@@ -101,7 +110,9 @@ In WSL (Ubuntu) terminal, run:
 	4.	Volatility 3 (newer version):  sudo apt install -y python3-pip   pip3 install volatility3 
 	5.	Plaso (timeline):  sudo apt install -y plaso-tools 
 	6.	Additional useful:  sudo apt install -y extundelete rekall 
-5. Quick installation test
-	•	 fls  – should work (Sleuth Kit).
-	•	 vol  – Volatility 3.
-	•	 autopsy  – launches Autopsy GUI (if you have X-server or WSLg on Windows 11).
+	
+### 5. Quick installation test
+
+- fls  – should work (Sleuth Kit).
+- vol  – Volatility 3.
+- autopsy  – launches Autopsy GUI (if you have X-server or WSLg on Windows 11).
