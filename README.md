@@ -10,9 +10,21 @@ Krok-po-kroku lista czynności dla Windows 10 (build 19041+) lub Windows 11. Wsz
 ### 1. Instalacja WSL 2 i Ubuntu
 
 1. Otwórz PowerShell jako Administrator.
-2. Włącz WSL i platformę maszyn wirtualnych: wsl --install
+2. Włącz WSL i platformę maszyn wirtualnych: 
+   
+	```bash
+	wsl --install
+	```
     - Automatycznie włączy potrzebne funkcje, zainstaluje WSL 2 i domyślną dystrybucję **Ubuntu** (najnowszą LTS).
-    - Jeśli polecenie nie działa (starszy Windows), ręcznie: dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestartdism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    - Jeśli polecenie nie działa (starszy Windows), ręcznie:
+      
+		```bash
+		dism.exe /online /enable-feature \
+		/featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+		
+		dism.exe /online /enable-feature \
+		/featurename:VirtualMachinePlatform /all /norestart
+		```   
 		- Restart komputera.
 		- Po restarcie system pobierze i zainstaluje Ubuntu z Microsoft Store automatycznie.
 5. Po pierwszym uruchomieniu Ubuntu (wpisz wsl lub ubuntu w terminalu):
@@ -21,11 +33,26 @@ Krok-po-kroku lista czynności dla Windows 10 (build 19041+) lub Windows 11. Wsz
 
 ### 2. Podstawowa konfiguracja WSL
 
-1. Sprawdź wersję i status: wsl --list --verbose Powinieneś zobaczyć Ubuntu z VERSION 2.
-2. Ustaw WSL 2 jako domyślny (jeśli nie jest): wsl --set-default-version 2
-3. Ustaw Ubuntu jako domyślną dystrybucję: wsl --set-default Ubuntu
-4. Aktualizuj system Ubuntu: W terminalu WSL (już jako użytkownik Linux): sudo apt update && sudo apt upgrade -y
-5. Zainstaluj podstawowe narzędzia: sudo apt install -y git curl wget nano net-tools
+1. Sprawdź wersję i status. Powinieneś zobaczyć Ubuntu z VERSION 2.
+```bash
+wsl --list --verbose
+```
+3. Ustaw WSL 2 jako domyślny (jeśli nie jest): 
+```bash
+wsl --set-default-version 2
+```
+5. Ustaw Ubuntu jako domyślną dystrybucję: 
+```bash
+wsl --set-default Ubuntu
+```
+7. Aktualizuj system Ubuntu: W terminalu WSL (już jako użytkownik Linux): 
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+9. Zainstaluj podstawowe narzędzia: 
+```bash
+sudo apt install -y git curl wget nano net-tools
+```
 
 ### 3. Przydatna konfiguracja dodatkowa
 
