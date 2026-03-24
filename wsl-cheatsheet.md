@@ -1,88 +1,137 @@
-### wsl Help
+### Pomoc WSL
+```shell
 wsl --help
+```
 
-# Check WSL status
+### Sprawdzenie statusu WSL
+```shell
 wsl --status
+```
 
-# Check WSL version
+### Sprawdzenie wersji WSL
+```shell
 wsl --version
+```
 
-# Update WSL
+### Aktualizacja WSL
+```shell
 wsl --update
+```
 
-# To list installed distributions (The default version of distro is explicitly mentioned in paranthesis)
+### Wyświetlenie listy zainstalowanych dystrybucji
+*(Domyślna wersja dystrybucji jest jawnie podana w nawiasie.)*
+```shell
 wsl -l
 wsl --list
+```
 
-# See a list of the Linux distributions available through the online store
+### Wyświetlenie listy dystrybucji Linuksa dostępnych w sklepie online
+```shell
 wsl -l -o
 wsl --list --online
+```
 
-# To list installed distributions along with its running status and wsl config being 1 or 2 
-# The default version of distro is explicitly marked with prefix `*` before its name
+### Wyświetlenie zainstalowanych dystrybucji wraz z ich statusem działania oraz informacją, czy konfiguracja WSL to 1 czy 2
+*(Domyślna dystrybucja jest oznaczona prefiksem `*` przed nazwą.)*
+```shell
 wsl -l --verbose
 wsl -l -v
+```
 
-# Set default WSL version
-wsl --set-default-version <Version>
+### Ustawienie domyślnej wersji WSL
+```shell
+wsl --set-default-version <Wersja>
+```
 
-# To run a specific distro
-wsl -d distro_name
-wsl --distribution distro_name
+### Uruchomienie konkretnej dystrybucji
+```shell
+wsl -d nazwa_dystrybucji
+wsl --distribution nazwa_dystrybucji
+```
 
-# To terminate/shutdown a specific distro
-wsl -t distro_name_to_shutdown
-wsl --terminate distro_name_to_shutdown
+### Zatrzymanie / wyłączenie konkretnej dystrybucji
+```shell
+wsl -t nazwa_dystrybucji_do_wylaczenia
+wsl --terminate nazwa_dystrybucji_do_wylaczenia
+```
 
-# To shutdown all disstros
+### Wyłączenie wszystkich dystrybucji
+```shell
 wsl --shutdown
+```
 
-# Set specific distro as default
-wsl -s my_default_distro
-wsl --set-default my_default_distro
+### Ustawienie konkretnej dystrybucji jako domyślnej
+```shell
+wsl -s moja_domyslna_dystrybucja
+wsl --set-default moja_domyslna_dystrybucja
+```
 
-# To EXPORT a running distro as image (Defaults to tar format)
-wsl --export distro_name_to_export windows_path\tar_file_name.tar
+### Eksport uruchomionej dystrybucji do obrazu
+*(Domyślnie eksport odbywa się do formatu tar.)*
+```shell
+wsl --export nazwa_dystrybucji_do_eksportu sciezka_windows\nazwa_pliku.tar
+```
 
-# To EXPORT a running distro as image in vhd format (only supported using WSL 2)
-wsl --export distro_name_to_export --vhd windows_path\tar_file_name.vhd
+### Eksport uruchomionej dystrybucji do obrazu w formacie VHD
+*(Obsługiwane tylko w WSL 2.)*
+```shell
+wsl --export nazwa_dystrybucji_do_eksportu --vhd sciezka_windows\nazwa_pliku.vhd
+```
 
-# To IMPORT an image as distro
-wsl --import new_distro_name install_location_windows_path tar_file_name.tar --version wsl-version-1-or-2
-wsl --import Ubuntu-20 D:\VMs\WSL\Ubuntu-20\ Ubuntu-20.04.tar --version 2 # Setting my secondary HDD as storate loc for new distro
-wsl --import Ubuntu-20 --vhd D:\VMs\WSL\Ubuntu-20\ Ubuntu-20.04.vhd --version 2 # Importing distro in vhd format
+### Import obrazu jako dystrybucji
+```shell
+wsl --import nowa_nazwa_dystrybucji lokalizacja_instalacji_w_windows plik.tar --version wersja-wsl-1-lub-2
+wsl --import Ubuntu-20 D:\VMs\WSL\Ubuntu-20\ Ubuntu-20.04.tar --version 2
+wsl --import Ubuntu-20 --vhd D:\VMs\WSL\Ubuntu-20\ Ubuntu-20.04.vhd --version 2
+```
 
-# To UNREGISTER (also removes the its file storage) a distro
-wsl --unregister distro_name_that_delete
+### Wyrejestrowanie dystrybucji
+*(Usuwa również jej pliki z dysku.)*
+```shell
+wsl --unregister nazwa_dystrybucji_do_usuniecia
+```
 
-# To run a WSL distro as the specified user.
-wsl -u username -d distroname
+### Uruchomienie dystrybucji WSL jako wskazany użytkownik
+```shell
+wsl -u nazwa_uzytkownika -d nazwa_dystrybucji
 wsl -u root -d Ubuntu-20.04
+```
 
-# To change the default user for a distribution
-DistributionName config --default-user Username
-ubuntu config --default-user my_default_username
-ubuntu2004.exe config --default-user johndoe # When you have Ubuntu 20.04 version installed from the Microsoft Store
+### Zmiana domyślnego użytkownika dla dystrybucji
+```shell
+NazwaDystrybucji config --default-user NazwaUzytkownika
+ubuntu config --default-user moja_domyslna_nazwa_uzytkownika
+ubuntu2004.exe config --default-user johndoe
+```
 
-# Identify IP address of your Linux distribution installed via WSL 2 (the WSL 2 VM address)
+### Identyfikacja adresu IP dystrybucji Linuksa zainstalowanej przez WSL 2
+*(Adres maszyny wirtualnej WSL 2.)*
+```shell
 wsl hostname -I
+```
 
-# Identify IP address of the Windows machine as seen from WSL 2 (the WSL 2 VM)
-ip route show | grep -i default | awk '{ print $3}'
+### Identyfikacja adresu IP komputera z Windows widzianego z poziomu WSL 2
+```shell
+ip route show | grep -i default | awk '{ print $3 }'
+```
 
-# Shink WSL disk space manually
-# WSL disk space grows automatically but doesn't shrink automatically. You got to shrink it after shutting the disk down like below.
-# Open windows terminal in administrator mode
-# cd directory-where-your-wsl2-distro-is-located
+### Ręczne zmniejszenie zajętości dysku WSL
+*Rozmiar dysku WSL zwiększa się automatycznie, ale nie zmniejsza się automatycznie. Aby go zmniejszyć, najpierw trzeba zamknąć dystrybucję, jak poniżej.*
+
+*Otwórz Windows Terminal w trybie administratora:*
+```shell
 cd D:\VM\WSL\Ubuntu
 wsl -l -v
-wsl --shutdown your-distro-name 
-# without the distro name it will shutdown all distros and if you got DockerDesktop running, it will be shutdown as well
+wsl --shutdown nazwa-twojej-dystrybucji
 Optimize-VHD -Path .\ext4.vhdx -Mode full
+```
 
+*Jeśli pominiesz nazwę dystrybucji, zostaną wyłączone wszystkie dystrybucje. Jeżeli działa Docker Desktop, on również zostanie wyłączony.*
 
-# List of deprecated WSL Commands
-# These commands were the original wsl syntax for configuring Linux distributions installed with WSL, but have been replaced with the wsl or wsl.exe command syntax.
-wslconfig.exe [Argument] [Options]
-bash [Options]
+### Lista przestarzałych poleceń WSL
+*Te polecenia były oryginalną składnią do konfiguracji dystrybucji Linuksa zainstalowanych w WSL, ale zostały zastąpione przez składnię `wsl` lub `wsl.exe`.*
+```shell
+wslconfig.exe [Argument] [Opcje]
+bash [Opcje]
 lxrun /[Argument]
+```
